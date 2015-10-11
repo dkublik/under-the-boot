@@ -1,0 +1,48 @@
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE'
+    }
+}
+
+
+group = 'pl.dk'
+version = 0.1
+
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    // for logback.groovy
+    runtime "org.codehaus.groovy:groovy-all:2.4.3"
+
+    compile 'org.springframework.boot:spring-boot-starter'
+    // for entities (hibernate-core, etc)
+    compile 'org.hibernate:hibernate-entitymanager'
+    // for spring annotated transactions
+    // and LocalContainerEntityManagerFactoryBean - condition for HibernateJpaAutoConfiguration
+    compile 'org.springframework:spring-orm'
+
+    // for datasource (for DataSourceAutoConfiguration to compile)
+    runtime 'org.apache.tomcat:tomcat-jdbc'
+
+    runtime 'com.h2database:h2'
+}
+
+wrapper {
+    gradleVersion '2.7'
+}
+
