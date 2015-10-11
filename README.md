@@ -1,7 +1,7 @@
 Under The Boot
 ===============
 
-code example for https://dkublik.github.io/under%20the%20biit/
+code example for http://dkublik.github.io/under%20the%20boot/
 
 
 ## Requirements
